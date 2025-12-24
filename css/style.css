@@ -472,6 +472,37 @@ html, body {
 }
 
 
+@media (max-width: 768px) {
+  nav,
+  .menu,
+  .navbar {
+    background-color: #ffffff; /* fundo claro */
+    color: #222;              /* texto escuro */
+  }
+
+  .navbar a {
+    color: #222;              /* links escuros */
+  }
+
+  .navbar a:hover {
+    color: #b90000;           /* cor de destaque no hover */
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  nav,
+  .menu,
+  .navbar {
+    background-color: #ffffff !important;
+    color: #222 !important;
+  }
+  .navbar a {
+    color: #222 !important;
+  }
+}
+
+
 
 
   
@@ -491,3 +522,4 @@ html, body {
   }
    
 }
+
