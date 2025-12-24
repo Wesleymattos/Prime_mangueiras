@@ -503,9 +503,80 @@ html, body {
 }
 
 
+/*--------hamburguer--------------*/
 
 
+
+/* Mobile: centralizar o menu quando ativo */
+@media (max-width: 768px) {
+  .nav .nav-list {
+    display: none; /* escondido por padrão */
+  }
+
+  .nav .nav-list.active {
+    display: block;
+    position: fixed;              /* vira overlay */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* centraliza nos dois eixos */
+    width: 90vw;                  /* largura responsiva */
+    max-width: 380px;             /* limite para não ficar enorme */
+    background: #fff;             /* fundo claro para legibilidade */
+    color: #222;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    z-index: 9999;
+    text-align: center;           /* centraliza os itens */
+  }
+
+  .nav .nav-list.active li {
+    margin: 10px 0;               /* espaçamento entre itens */
+    list-style: none;
+  }
+
+  .nav .nav-list.active a {
+    display: inline-block;        /* melhor alinhamento central */
+    color: #222;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  .nav .nav-list.active a:hover,
+  .nav .nav-list.active a:focus-visible {
+    background: #f2f2f2;
+    color: #b90000;               /* sua cor de destaque */
+  }
+
+  /* Botão hambúrguer aparece no mobile */
+  .menu-toggle {
+    display: inline-block;
+  }
+}
+
+/* Opcional: esconder o hambúrguer no desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/*---------deixa o ctalist invisivel no caso o botão do whatsapp e ativa no hamburguer-------------*/
   
+
+/* Oculta o CTA sempre */
+.nav .nav-list .nav-ctalist {
+  display: none;
+}
+
+/* Exibe quando o menu estiver ativo (hambúrguer clicado) */
+.nav .nav-list.active .nav-ctalist {
+  display: block;
+}
+
 
 
 
@@ -522,4 +593,5 @@ html, body {
   }
    
 }
+
 
