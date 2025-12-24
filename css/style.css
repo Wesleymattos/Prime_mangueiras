@@ -1,0 +1,493 @@
+
+:root {
+  --cor-primaria: #0a2a43;
+  --cor-secundaria: #07eb07;
+  --cor-texto: #333;
+  --cor-fundo: #ffffff;
+
+  --header-height: 72px; /* ajusta conforme seu layout */
+  --container-max: 1200px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --radius-6: 6px;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+  box-shadow: var(--shadow-1);
+}
+
+/* CONTAINER PADRÃO */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+/* LOGO */
+.logo img {
+  height: 140px; /* reduzido um pouco para header */
+  width: auto;
+  display: block;
+}
+
+
+
+/* LISTA */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--space-6);
+}
+
+/* LINKS do menu */
+.nav-list a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px; /* espaço para underline animado */
+}
+
+/* ANIMAÇÃO UNDERLINE */
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--cor-secundaria);
+  transition: width 200ms ease;
+}
+.nav-list a:hover::after,
+.nav-list a:focus-visible::after,
+.nav-list a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* BOTÃO CTA */
+.btn-cta {
+  background: var(--cor-secundaria);
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: var(--shadow-1);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
+}
+.btn-cta:active {
+  transform: translateY(0);
+}
+
+/* BOTÃO MOBILE */
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* SEÇÕES (espacamento responsivo) */
+.section {
+  /* padding horizontal adaptável: entre 1rem e 4rem */
+  padding: 4rem clamp(1rem, 5vw, 4rem);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  font-style: oblique;
+  color: #ffffff;
+  font-size: 19px;
+  text-align: center;
+}
+
+
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .logo img { height: 96px; }
+}
+
+@media (max-width: 768px) {
+  /* Header: reorganiza para mobile-first */
+  .container {
+    gap: var(--space-4);
+  }
+
+  .logo img { height: 72px; }
+
+  /* Oculta lista inicialmente e mostra com toggle */
+  .nav {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: calc(var(--header-height));
+    right: 0;
+    left: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--space-4);
+    display: none;
+    border-bottom: 1px solid #eee;
+    box-shadow: var(--shadow-2);
+  }
+
+  /* Classe padronizada para abertura */
+  .nav-list.is-open {
+    display: flex;
+  }
+
+  .btn-cta {
+    display: none; /* se quiser mostrar, mova para dentro do menu mobile */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  
+}
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  line-height: 1.5;
+}
+
+
+/* Imagem de fundo com efeito de zoom */
+.card img {
+ width: 100%;
+ height: auto;
+ animation: zoomSuave 10s ease-in-out infinite;
+ }
+ @keyframes zoomSuave {
+  0% {
+    transform: scale(1);
+
+  }
+  50%{
+    transform: scale(1.08);
+  }
+  100%{
+    transform: scale(1);
+  }
+  
+ }
+
+ .footer{
+  background: #111;
+  color: #fff;
+  padding: 50px 8% 20px;
+   }
+
+ 
+
+ .footer h3 .footer h4 {
+  color: #0f172a
+  
+ }
+
+ .footer p {
+  font-size: 12px;
+  line-height: 1.6;
+ }
+
+.btn-whats {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 10px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+  }
+
+  .btn-whats:hover{
+    background: #07eb07;
+  }
+
+/* Container do footer em grid */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+  gap: 20px;
+}
+
+/* Mapa (iframe) com cantos arredondados e responsivo */
+.footer-col iframe {
+  width: 100%;
+  height: 250px;      /* ajuste conforme seu layout */
+  border: 0;
+  border-radius: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+  }
+
+  .footer-col iframe {
+    height: 220px; /* altura um pouco menor no mobile */
+  }
+}
+
+/* Footer geral */
+.footer {
+  display: grid;          /* para usar justify-items */
+  justify-items: center;  /* centraliza o conteúdo de cada célula */
+  text-align: center;
+  padding: 20px 0;
+  /* opcional:
+  background-color: #f8f8f8;
+  */
+}
+
+
+
+.social i {
+  color: #d50446;            /* ícone também branco */
+  margin-right: 6px;
+}
+
+
+
+
+
+.footer-col.map iframe {
+  width: 520px;     /* defina a largura desejada */
+  max-width: 100%;  /* não ultrapassa a largura do container */
+  height: 220px;    /* ajuste conforme necessário */
+  display: block;
+  margin: 0 auto;   /* centraliza */
+  border: 0;
+  border-radius: 20px;
+  margin-top: 80px; /* empurra toda a coluna para baixo */
+  
+  }
+  
+
+.footer-bottom {
+  border-top: 1px solid #ddd;   /* barra em cima */
+  padding: 14px 0;              /* espaço interno */
+  margin-top: 48px;             /* desce em relação ao conteúdo acima */
+  text-align: center;
+  color: #333;
+  /* opcional:
+  background-color: #fafafa;    /* leve contraste */
+  */
+}
+
+
+/* Desktop / padrão */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+  gap: 40px; /* separação maior entre as colunas */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+    gap: 20px; /* espaçamento vertical entre as seções */
+  }
+} /* <-- esta chave é ESSENCIAL para fechar a media query */
+
+
+
+
+.title-horario,
+.title-contato,
+.title-endereco {
+  color: #fff;                        /* branco para todos */
+  font-family: 'Arial', sans-serif;   /* ou outra fonte */
+  font-size: 1.4rem;                  /* ajuste conforme necessário */
+  font-weight: bold;                  /* negrito */
+  text-transform: uppercase;          /* opcional: tudo em maiúsculas */
+  margin-bottom: 8px;                 /* espaçamento abaixo */
+  transition: text-shadow 200ms ease, transform 200ms ease;
+}
+
+.title-horario:hover,
+.title-contato:hover,
+.title-endereco:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* brilho branco suave */
+  transform: scale(1.1);
+}
+
+
+
+
+#home h1:hover {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9); /* brilho mais forte */
+  transform: translateY(-2px);                    /* efeito de "levantar" */
+}
+#home p:hover {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9); /* brilho mais forte */
+  transform: translateY(-2px);                    /* efeito de "levantar" */
+  
+}
+
+
+
+.btn-cta:hover {
+  background-color: #d0ff00;       /* tom mais escuro no hover */
+  transform: scale(1.25);          /* leve aumento no hover */
+}
+
+
+
+.email-link {
+  color: #fff;                 /* texto branco */
+  text-decoration: none;       /* remove sublinhado */
+  font-weight: bold;
+  display: inline-flex;        /* alinha ícone e texto */
+  align-items: center;
+  gap: 6px;                    /* espaço entre ícone e texto */
+  transition: text-shadow 200ms ease, color 200ms ease;
+}
+
+.email-link:hover {
+  color: #fff; /* mantém branco */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.85); /* brilho branco */
+}
+
+.email-link i {
+  color: #fff;                 /* ícone branco */
+  font-size: 1.2rem;
+  transition: filter 200ms ease;
+}
+
+.email-link:hover i {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)); /* brilho no ícone */
+}
+
+
+.social a {
+  color: #fff;            /* cor branca para o texto */
+  text-decoration: none;  /* remove sublinhado */
+  font-weight: bold;          /* opcional para destaque */
+  display: inline-flex;       /* alinha ícone e texto */
+  align-items: center;
+  gap: 6px;                   /* espaço entre ícone e texto */
+  transition: color 0.3s ease;
+}
+
+
+.social a:hover {
+  color: #fff;                 /* mantém branco no hover */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* brilho branco */
+}
+
+
+.phone-link {
+  color: #fff;                 /* texto branco */
+  text-decoration: none;
+  font-weight: bold;
+  transition: text-shadow 0.3s ease;
+}
+
+.phone-link:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* brilho branco */
+}
+
+
+.btn-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #222;
+  color: #fff; /* cor dos ícones */
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.2s ease;
+}
+
+.btn-nav:hover,
+.btn-nav:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255,255,255,0.15);
+}
+
+.btn-nav i {
+  font-size: 22px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0)); /* sem brilho padrão */
+  transition: filter 200ms ease;
+}
+
+.btn-nav:hover i,
+.btn-nav:focus-visible i {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85)); /* brilho branco no hover */
+}
+
+/* Cores de marca (opcional) */
+.btn-nav.waze { background-color: #2D9BF0; }
+.btn-nav.gmaps { background: linear-gradient(45deg, #34A853, #1A73E8); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .btn-nav { width: 48px; height: 48px; }
+  .btn-nav i { font-size: 24px; }
+}
+
+
+
+
+  
+
+
+
+/* ---------- Dark mode opcional ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0f172a;
+    --bg-soft: #0b1222;
+    --text-color: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-color: #1f2a3c;
+    --shadow-s: 0 1px 3px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.5);
+    --shadow-m: 0 10px 15px rgba(0,0,0,0.5), 0 4px 6px rgba(0,0,0,0.45);
+  }
+   
+}
