@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
+  
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
@@ -69,3 +70,213 @@
   </header>
 
 
+
+
+
+
+
+
+
+
+<h1>Categorias / Produtos</h1>
+<p style="color:#6b7280">Selecione os itens e envie sua solicitação de cotação pelo WhatsApp.</p>
+
+<!-- Grid de produtos -->
+<div id="productGrid" class="grid"></div>
+
+<!-- Barra de seleção (aparece quando tiver itens) -->
+<div id="quoteBar" class="quote-bar" hidden>
+  <div class="quote-summary">
+    <span id="quoteCount">0 itens selecionados</span>
+  </div>
+  <!-- Link do WhatsApp atualizado via JS -->
+  <a id="quoteWhatsApp" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+    Enviar cotação pelo WhatsApp
+  </a>
+</div>
+
+<script>
+  // ====== Catálogo (sem preços) ======
+  const products = [
+    { id: 1,  name: 'Mangueiras Industriais' },
+    { id: 2,  name: 'Mangueiras Hidráulicas' },
+    { id: 3,  name: 'Mangueiras Metálicas' },
+    { id: 4,  name: 'Mangueiras de Jardim' },
+    { id: 5,  name: 'Mangueiras Atóxicas' },
+    { id: 6,  name: 'Manômetros' },
+    { id: 7,  name: 'Conexões e Adaptadores' },
+    { id: 8,  name: 'Válvulas' },
+    { id: 9,  name: 'Abraçadeiras para Tubo' },
+    { id: 10, name: 'Engates Rápidos' },
+    { id: 11, name: 'Diversos' },
+    { id: 12, name: 'Terminais' },
+    { id: 13, name: 'Flanges' },
+    { id: 14, name: 'Cabos de Segurança' },
+    { id: 15, name: 'Pneumática' },
+    { id: 16, name: 'Reparos em cilindros' },
+    { id: 17, name: 'Filtro Hidráulico' },
+    { id: 18, name: 'Óleo Hidráulico' },
+    { id: 19, name: 'Fluído Hidráulico' },
+    { id: 20, name: 'Capas Hidráulicas' },
+    { id: 21, name: 'Protetor têxtil' },
+    { id: 22, name: 'Conexões Latão' },
+    { id: 23, name: 'Correias Industriais' },
+    { id: 24, name: 'Tubos Galvanizados' },
+    { id: 25, name: 'Proteção de Mangueiras' },
+    { id: 26, name: 'Eletrodo de Solda' },
+    { id: 27, name: 'Arame de Solda MIG' },
+  ];
+
+  // ====== Seleção para cotação (Map: id -> { id, name, qty }) ======
+  const selection = new Map();
+
+  // ====== Util ======
+  const phone = '5551998931547'; // WhatsApp definido
+  const enc = (s) => encodeURIComponent(s);
+
+  // ====== Render do grid ======
+  function renderProducts(){
+    const el = document.getElementById('productGrid');
+    el.innerHTML = products.map(p => {
+      const qty = selection.get(p.id)?.qty ?? 1;
+
+      // Mensagem individual do produto (nome + quantidade atual)
+      const msgItem = `Olá! Gostaria de cotar:\n• ${p.name} x${qty}\nObrigado!`;
+      const waItemHref = `https://wa.me/${phone}?text=${enc(msgItem)}`;
+
+      return `
+        <div class="card">
+          <div class="card-media" aria-hidden="true">Imagem</div>
+          <h3 class="card-title">${p.name}</h3>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" onclick="addItem(${p.id})">Selecionar</button>
+
+            <div class="qty-wrap">
+              <button class="btn btn-qty" onclick="decItem(${p.id})" aria-label="Diminuir quantidade">−</button>
+              <input class="qty-input" type="number" min="1" value="${qty}"
+                     onchange="setItem(${p.id}, this.value)" aria-label="Quantidade">
+              <button class="btn btn-qty" onclick="incItem(${p.id})" aria-label="Aumentar quantidade">+</button>
+            </div>
+
+            <a class="btn" target="_blank" rel="noopener noreferrer" href="${waItemHref}">
+              Solicitar cotação
+            </a>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ====== Atualiza barra de cotação (link geral) ======
+  function renderQuoteBar(){
+    const bar = document.getElementById('quoteBar');
+    const list = Array.from(selection.values());
+
+    const count = list.reduce((s, it) => s + it.qty, 0);
+    document.getElementById('quoteCount').textContent =
+      `${count} item${count>1?'s':''} selecionado${count>1?'s':''}`;
+
+    if (selection.size === 0){
+      bar.hidden = true;
+      return;
+    }
+    bar.hidden = false;
+
+    // Mensagem completa com todos os itens
+    const lines = list.map(it => `• ${it.name} x${it.qty}`);
+    const msg = `Olá, gostaria de uma cotação:\n${lines.join('\n')}\n\nObrigado!`;
+    document.getElementById('quoteWhatsApp').href = `https://wa.me/${phone}?text=${enc(msg)}`;
+  }
+
+  // ====== Ações (garante { id, name, qty } sempre definidos) ======
+  function addItem(id){
+    const prod = products.find(p => p.id === id);
+    const cur = selection.get(id);
+    if (cur) {
+      selection.set(id, { ...cur, qty: cur.qty + 1 });
+    } else {
+      selection.set(id, { id: prod.id, name: prod.name, qty: 1 });
+    }
+    renderProducts();
+    renderQuoteBar();
+  }
+
+  function incItem(id){
+    const prod = products.find(p => p.id === id);
+    const cur = selection.get(id);
+    selection.set(id, { id, name: prod.name, qty: (cur?.qty ?? 1) + 1 });
+    renderProducts();
+    renderQuoteBar();
+  }
+
+  function decItem(id){
+    const cur = selection.get(id);
+    if (!cur) return;
+    const next = Math.max(1, cur.qty - 1);
+    selection.set(id, { ...cur, qty: next });
+    renderProducts();
+    renderQuoteBar();
+  }
+
+  function setItem(id, qty){
+    const n = Math.max(1, Number(qty) || 1);
+    const prod = products.find(p => p.id === id);
+    selection.set(id, { id, name: prod.name, qty: n });
+    renderProducts();
+    renderQuoteBar();
+  }
+
+  // ====== Inicializa ======
+  renderProducts();
+  renderQuoteBar();
+</script>
+
+<!-- ====== CSS mínimo para o grid (escopo apenas visual dentro do main) ====== -->
+<style>
+  /* Grid */
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 980px){ .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px){ .grid { grid-template-columns: 1fr; } }
+
+  /* Cartões */
+  .card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; }
+  .card-media { height: 120px; border-radius: 10px; background: #eef6ff; border: 1px dashed #cfe8ff;
+                display:flex; align-items:center; justify-content:center; color:#0284c7; font-size: 13px; }
+  .card-title { font-size: 16px; margin: 10px 0 6px; }
+  .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+  /* Botões */
+  .btn { display: inline-block; padding: 8px 12px; border-radius: 10px; border: 1px solid #e5e7eb;
+         background: #fff; color: #111827; font-weight: 600; text-decoration: none;
+         transition: background .2s ease, transform .08s ease; }
+  .btn:hover { background: #f3f4f6; transform: translateY(-1px); }
+  .btn-primary { background: #0ea5e9; color: #fff; border-color: transparent; }
+  .btn-primary:hover { background: #0284c7; }
+  .btn-qty { padding: 6px 10px; }
+
+  .qty-wrap { display: inline-flex; align-items: center; gap: 6px; }
+  .qty-input { width: 68px; padding: 6px; border: 1px solid #e5e7eb; border-radius: 8px; }
+
+  /* Barra de cotação */
+  .quote-bar { position: sticky; bottom: 12px; display:flex; justify-content: space-between; align-items: center;
+               gap: 10px; background:#fff; border:1px solid #e5e7eb; border-radius: 12px; padding: 10px 12px;
+               margin-top: 16px; }
+  .quote-summary { color:#111827; font-weight: 600; }
+  .btn-whatsapp { background: #25D366; color: #fff; border-color: transparent; }
+  .btn-whatsapp:hover { background: #1ebe57; }
+</style>
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="footer-bottom">
+    &copy; 2025 Prime Conexões e Mangueiras - Todos os direitos reservados
+  </div>
+</footer>
