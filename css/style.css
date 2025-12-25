@@ -595,3 +595,204 @@ html, body {
 }
 
 
+/* ===== Sessão de Contato (escopo limitado) ===== */
+
+
+.mf-contact {
+  padding: 40px 20px;
+  color: #080808; /* cinza-900 */
+
+}
+
+.mf-contact .mf-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mf-contact .mf-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* esquerda > direita */
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .mf-contact .mf-grid {
+    grid-template-columns: 1fr; /* empilha no mobile */
+  }
+}
+
+/* Coluna esquerda */
+.mf-contact .mf-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mf-contact .mf-title {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  margin: 0;
+}
+
+.mf-contact .mf-card {
+  background: #f9fafb;            /* cinza-50 */
+  border: 1px solid #e5e7eb;       /* cinza-200 */
+  border-radius: 14px;
+  padding: 18px 16px;
+}
+
+.mf-contact .mf-city {
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.mf-contact .mf-address {
+  margin: 0 0 14px;
+}
+
+.mf-contact .mf-address-line {
+  margin: 2px 0;
+  font-size: 15px;
+}
+
+.mf-contact .mf-divider {
+  border: none;
+  border-top: 1px dashed #e5e7eb;
+  margin: 14px 0;
+}
+
+/* Lista de contatos */
+.mf-contact .mf-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.mf-contact .mf-contact-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.mf-contact .mf-label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.mf-contact .mf-link {
+  color: #0ea5e9;
+  text-decoration: none;
+}
+.mf-contact .mf-link:hover,
+.mf-contact .mf-link:focus-visible {
+  color: #0284c7;
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Chips (telefone e Instagram lado a lado) */
+.mf-contact .mf-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: center;
+}
+
+.mf-contact .mf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.08s ease, border-color 0.2s ease;
+}
+.mf-contact .mf-chip:hover {
+  background: #f3f4f6; /* cinza-100 */
+  border-color: #d1d5db; /* cinza-300 */
+  transform: translateY(-1px);
+}
+.mf-contact .mf-chip:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+.mf-contact .mf-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+.mf-contact .mf-chip-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Texto e botão */
+.mf-contact .mf-subtitle {
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+.mf-contact .mf-text {
+  font-size: 15px;
+  color: #6b7280; /* cinza-500 */
+  margin: 4px 0 10px;
+}
+
+.mf-contact .mf-btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, transform 0.08s ease, box-shadow 0.2s ease;
+}
+.mf-contact .mf-btn--primary {
+  background: #0ea5e9;
+  color: #fff;
+}
+.mf-contact .mf-btn--primary:hover,
+.mf-contact .mf-btn--primary:focus-visible {
+  background: #0284c7;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.22);
+}
+
+/* Coluna direita (mapa) */
+.mf-contact .mf-map {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 10px;
+}
+.mf-contact .mf-map-frame {
+  width: 100%;
+  min-height: 340px;
+  border: 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .mf-contact .mf-map-frame {
+    min-height: 280px;
+  }
+}
+
+/* Utilitário opcional (caso precise esconder textos) */
+.mf-contact .visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+
+
