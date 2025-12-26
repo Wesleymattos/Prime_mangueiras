@@ -232,41 +232,6 @@
   renderQuoteBar();
 </script>
 
-<!-- ====== CSS mínimo para o grid (escopo apenas visual dentro do main) ====== -->
-<style>
-  /* Grid */
-  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  @media (max-width: 980px){ .grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px){ .grid { grid-template-columns: 1fr; } }
-
-  /* Cartões */
-  .card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; }
-  .card-media { height: 120px; border-radius: 10px; background: #eef6ff; border: 1px dashed #cfe8ff;
-                display:flex; align-items:center; justify-content:center; color:#0284c7; font-size: 13px; }
-  .card-title { font-size: 16px; margin: 10px 0 6px; }
-  .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-
-  /* Botões */
-  .btn { display: inline-block; padding: 8px 12px; border-radius: 10px; border: 1px solid #e5e7eb;
-         background: #fff; color: #111827; font-weight: 600; text-decoration: none;
-         transition: background .2s ease, transform .08s ease; }
-  .btn:hover { background: #f3f4f6; transform: translateY(-1px); }
-  .btn-primary { background: #0ea5e9; color: #fff; border-color: transparent; }
-  .btn-primary:hover { background: #0284c7; }
-  .btn-qty { padding: 6px 10px; }
-
-  .qty-wrap { display: inline-flex; align-items: center; gap: 6px; }
-  .qty-input { width: 68px; padding: 6px; border: 1px solid #e5e7eb; border-radius: 8px; }
-
-  /* Barra de cotação */
-  .quote-bar { position: sticky; bottom: 12px; display:flex; justify-content: space-between; align-items: center;
-               gap: 10px; background:#fff; border:1px solid #e5e7eb; border-radius: 12px; padding: 10px 12px;
-               margin-top: 16px; }
-  .quote-summary { color:#111827; font-weight: 600; }
-  .btn-whatsapp { background: #25D366; color: #fff; border-color: transparent; }
-  .btn-whatsapp:hover { background: #1ebe57; }
-</style>
-
 
 
 
