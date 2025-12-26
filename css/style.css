@@ -809,7 +809,7 @@ html, body {
   @media (max-width: 560px){ .grid { grid-template-columns: 1fr; } }
 
   /* Cartões */
-  .card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; }
+  .card { background: #7f8181; border: 1px solid #e5e7eb; border-radius: 14px; padding: 12px; }
   .card-media { height: 120px; border-radius: 10px; background: #eef6ff; border: 1px dashed #cfe8ff;
                 display:flex; align-items:center; justify-content:center; color:#0284c7; font-size: 13px; }
   .card-title { font-size: 16px; margin: 10px 0 6px; }
