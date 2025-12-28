@@ -3,7 +3,7 @@ Site para empresa do Heider
 
 Data da ultima atualização: 28/12/2015
 Autor: Wesley de Mattos
-versão: 1.1.1
+versão: 1.3.1
 
 
 No dia 26/12/2025 o site recebeu sua primeira versão para controle de versionamento padrão SemVer (Semantic Versioning), MAJOR.MINOR.PATCH.
@@ -37,3 +37,8 @@ Data:28/12/2025
 horário: 16:11
 versão: 1.2.1
 Melhoria: Foi adicionado melhorias na pagina de quem somos pelo css também
+
+Data:28/12/2025
+horário: 16:23
+versão: 1.3.1
+Melhoria: Foi adicionado melhorias na pagina de quem somos pelo css também (brilho no texto)

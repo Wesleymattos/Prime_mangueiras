@@ -977,3 +977,37 @@ figcaption {
   }
 }
 
+
+.sobre {
+
+
+  /* transição suave */
+  transition: transform 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
+  transform-origin: right center; /* expande “para o lado” certo */
+}
+
+.sobre:hover {
+  transform: scale(1.04); /* fica um pouco maior */
+  color: #ffffff;         /* mantém branco puro */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* mais destaque */
+  
+
+  /* brilho mais suave */
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.8),
+    0 0 8px rgba(255,255,255,0.5),
+    0 0 12px rgba(255,255,255,0.3),
+    1px 1px 3px rgba(0,0,0,0.4); /* leve contraste */
+  transform: scale(1.02); /* menor aumento */
+
+
+}
+
+/* Acessibilidade: reduzir movimento para quem prefere */
+@media (prefers-reduced-motion: reduce) {
+  .sobre {
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+    transform: none;
+  }
+}
+
