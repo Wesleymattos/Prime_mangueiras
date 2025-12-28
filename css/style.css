@@ -842,13 +842,7 @@ html, body {
 
 
 /* Centraliza tudo */
-  body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 24px;
-  }
-
+ 
   .fig-centered {
     display: inline-block;
     margin: 0 auto;
