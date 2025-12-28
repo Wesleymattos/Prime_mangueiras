@@ -837,49 +837,143 @@ html, body {
 
 
 
- /* Estilo da página quem somos, sócio proprietárioo */
- 
+/* ===== Página "Quem Somos" - Sócio Proprietário ===== */
+
+/* Tipografia elegante para o texto "sobre" */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 
 
-/* Centraliza tudo */
- 
+.sobre {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #fff;
+  text-align: right;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+
+  /* respiro nas laterais */
+  padding: 0.5rem 1rem;   /* topo/baixo 0.5rem, lados 1rem */
+  box-sizing: border-box;
+}
+
+
+/* Layout lado a lado: imagem + texto */
+.perfil-wrapper {
+  display: flex;
+  align-items: flex-start; /* topo alinhado */
+  gap: 1.5rem;
+  /* --- Ative o fundo escuro se precisar de contraste para o texto branco --- */
+  /* background: #0b2b40;       */
+  /* padding: 1rem;             */
+  /* border-radius: 8px;        */
+}
+
+/* Figure ao lado do texto */
+.fig-centered {
+  display: inline-block; /* mantém comportamentos de figure */
+  margin: 0;             /* sem auto-centro quando em flex */
+  text-align: center;    /* legenda centralizada */
+  flex: 0 0 320px;       /* largura reservada para a coluna da imagem */
+}
+
+
+figcaption {
+  color: #fff; /* branco */
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+
+/* Imagem com transições e brilho suave */
+.img-brilho {
+  display: block;
+  width: 100%;
+  max-width: 300px;     /* respeita sua largura desejada */
+  height: auto;
+  margin: 0 auto;
+  transition: filter 0.6s ease, transform 0.6s ease;
+  filter: brightness(1);
+  will-change: filter, transform;
+}
+
+.img-brilho:hover {
+  filter: brightness(1.15) saturate(1.05) contrast(1.05);
+  transform: scale(1.02);
+}
+
+/* Acessibilidade: menos movimento para quem prefere */
+@media (prefers-reduced-motion: reduce) {
+  .img-brilho {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Responsividade: empilha no mobile e centraliza o texto */
+@media (max-width: 860px) {
+  .perfil-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
   .fig-centered {
-    display: inline-block;
-    margin: 0 auto;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 480px;   /* opcional: imagem maior no mobile */
   }
-
-  figcaption {
-    margin-bottom: 8px;
-    font-style: italic;
-    color: #333;
+  .sobre {
+    text-align: center; /* melhor leitura no mobile */
+    margin-top: 0.75rem;
+    width: 100%;
   }
+}
 
-  /* Imagem com transição suave e brilho no hover */
-  .img-brilho {
-    display: block;
-    margin: 0 auto;
-    transition: filter 0.6s ease, transform 0.6s ease; /* transições suaves */
-    filter: brightness(1); /* estado normal */
-    will-change: filter, transform; /* melhora desempenho */
+/* Título do sócio (opcional, caso queira um ajuste visual) */
+
+
+/* Título do sócio: fluido e responsivo */
+.socio {
+  /* Tamanho da fonte se adapta: mínimo 1.2rem, ideal 2.2rem, máximo 2.6rem */
+  font-size: clamp(1.2rem, 2.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+
+  /* Empurra para a direita e para baixo em telas médias/grandes */
+  /* topo | direita | baixo | esquerda */
+  margin: 2.5rem env(safe-area-inset-right) 1rem clamp(1rem, 5vw, 3rem);
+
+  /* Caso tenha um fundo atrás e precise de respiro adicional */
+  /* padding-right: 0.5rem; */
+}
+
+/* ====== Breakpoints ====== */
+
+/* Tablets e desktops pequenos */
+@media (max-width: 1024px) {
+  .socio {
+    /* Menos deslocamento lateral em telas menores */
+    margin: 2rem env(safe-area-inset-right) 0.75rem clamp(0.75rem, 4vw, 2rem);
+    font-size: clamp(1.2rem, 3vw, 2.4rem);
   }
+}
 
-  .img-brilho:hover {
-    filter: brightness(1.15) saturate(1.05) contrast(1.05); /* brilho + leve realce */
-    transform: scale(1.02); /* opcional: um pouquinho de zoom para dar vida */
+/* Mobile (smartphones) */
+@media (max-width: 768px) {
+  .socio {
+    /* No mobile, normalmente é melhor centralizar ou reduzir o deslocamento */
+    text-align: center;  /* opcional: remova se quiser manter alinhado à esquerda */
+    margin: 1.25rem env(safe-area-inset-right) 0.5rem env(safe-area-inset-left);
+    font-size: clamp(1.1rem, 4.5vw, 2rem);
+    line-height: 1.3;
   }
+}
 
-  /* Responsividade: imagem se ajusta no mobile */
-  .img-brilho {
-    max-width: 100%;
-    height: auto;
+/* Mobile muito pequeno (<= 360px de largura) */
+@media (max-width: 360px) {
+  .socio {
+    margin: 1rem env(safe-area-inset-right) 0.5rem env(safe-area-inset-left);
+    font-size: clamp(1rem, 5vw, 1.8rem);
   }
-
-  /* Acessibilidade: usuários que preferem menos movimento */
-  @media (prefers-reduced-motion: reduce) {
-    .img-brilho {
-      transition: none;
-      transform: none;
-    }
-  }
-
+}
 

@@ -32,3 +32,8 @@ Data:28/12/2025
 horário: 14:52
 versão: 1.1.1
 Melhoria: Foi adicionado a imagem do sócio proprietário para versão 1.1.1
+
+Data:28/12/2025
+horário: 16:11
+versão: 1.2.1
+Melhoria: Foi adicionado melhorias na pagina de quem somos pelo css também
