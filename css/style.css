@@ -836,3 +836,56 @@ html, body {
   .btn-whatsapp:hover { background: #1ebe57; }
 
 
+
+ /* Estilo da página quem somos, sócio proprietárioo */
+ 
+
+
+/* Centraliza tudo */
+  body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+  }
+
+  .fig-centered {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  figcaption {
+    margin-bottom: 8px;
+    font-style: italic;
+    color: #333;
+  }
+
+  /* Imagem com transição suave e brilho no hover */
+  .img-brilho {
+    display: block;
+    margin: 0 auto;
+    transition: filter 0.6s ease, transform 0.6s ease; /* transições suaves */
+    filter: brightness(1); /* estado normal */
+    will-change: filter, transform; /* melhora desempenho */
+  }
+
+  .img-brilho:hover {
+    filter: brightness(1.15) saturate(1.05) contrast(1.05); /* brilho + leve realce */
+    transform: scale(1.02); /* opcional: um pouquinho de zoom para dar vida */
+  }
+
+  /* Responsividade: imagem se ajusta no mobile */
+  .img-brilho {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Acessibilidade: usuários que preferem menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    .img-brilho {
+      transition: none;
+      transform: none;
+    }
+  }
+
+
