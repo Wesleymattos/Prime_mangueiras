@@ -1015,3 +1015,10 @@ figcaption {
 :root {
   color-scheme: light;
 }
+
+.hero-logo {
+  width: 280px; /* ajuste como quiser */
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))
+          drop-shadow(0 0 25px rgb(254, 254, 254));
+}
