@@ -1198,3 +1198,21 @@ html {
     flex-direction: column;
   }
 }
+.btn-loja {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #07eb07;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+
+  transition: all 0.25s ease;
+}
+
+.btn-loja:hover {
+  background: #00c400;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
