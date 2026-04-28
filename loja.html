@@ -96,37 +96,75 @@
   </a>
 </div>
 
+
+
+
+
 <script>
   // ====== Catálogo (sem preços) ======
-  const products = [
-    { id: 1,  name: 'Mangueiras Industriais' },
-    { id: 2,  name: 'Mangueiras Hidráulicas' },
-    { id: 3,  name: 'Mangueiras Metálicas' },
-    { id: 4,  name: 'Mangueiras de Jardim' },
-    { id: 5,  name: 'Mangueiras Atóxicas' },
-    { id: 6,  name: 'Manômetros' },
-    { id: 7,  name: 'Conexões e Adaptadores' },
-    { id: 8,  name: 'Válvulas' },
-    { id: 9,  name: 'Abraçadeiras para Tubo' },
-    { id: 10, name: 'Engates Rápidos' },
-    { id: 11, name: 'Diversos' },
-    { id: 12, name: 'Terminais' },
-    { id: 13, name: 'Flanges' },
-    { id: 14, name: 'Cabos de Segurança' },
-    { id: 15, name: 'Pneumática' },
-    { id: 16, name: 'Reparos em cilindros' },
-    { id: 17, name: 'Filtro Hidráulico' },
-    { id: 18, name: 'Óleo Hidráulico' },
-    { id: 19, name: 'Fluído Hidráulico' },
-    { id: 20, name: 'Capas Hidráulicas' },
-    { id: 21, name: 'Protetor têxtil' },
-    { id: 22, name: 'Conexões Latão' },
-    { id: 23, name: 'Correias Industriais' },
-    { id: 24, name: 'Tubos Galvanizados' },
-    { id: 25, name: 'Proteção de Mangueiras' },
-    { id: 26, name: 'Eletrodo de Solda' },
-    { id: 27, name: 'Arame de Solda MIG' },
-  ];
+ const products = [
+  { id: 1, name: 'Terminais UNF-JIC Macho/Fêmea', img: 'img/loja/jic.jpeg' },
+  { id: 2, name: 'Terminais DKO Leve/Pesado', img: 'img/loja/dko.jpeg' },
+  { id: 3, name: 'Terminais BSP Macho/Fêmea', img: 'img/loja/bsp.jpeg' },
+  { id: 4, name: 'Terminais Flange', img: 'img/loja/flange.jpeg' },
+  { id: 5, name: 'Terminais ORFS Face Plana', img: 'img/loja/orfs.jpeg' },
+  { id: 6, name: 'Terminais NPT', img: 'img/loja/npt.jpeg' },
+  { id: 7, name: 'Adaptadores e Terminais', img: 'img/loja/adaptadores.jpeg' },
+
+  { id: 8, name: 'Lava Jato', img: 'img/loja/lavajato.jpeg' },
+  { id: 9, name: 'Válvulas', img: 'img/loja/valvulas.jpg' },
+  { id: 10, name: 'Graxeiras', img: 'img/loja/graxeiras.jpg' },
+  { id: 11, name: 'Cuíca de Freio', img: 'img/loja/cuica.jpg' },
+  { id: 12, name: 'Solda', img: 'img/loja/solda.jpg' },
+  { id: 13, name: 'Engates Rápidos', img: 'img/loja/engate.jpg' },
+
+  { id: 14, name: 'Adaptadores NPT x JIC', img: 'img/loja/npt-jic.jpeg' },
+  { id: 15, name: 'Adaptadores NPT x DKO', img: 'img/loja/npt-dko.jpg' },
+  { id: 16, name: 'Adaptadores NPT x BSP', img: 'img/loja/npt-bsp.jpg' },
+
+  { id: 17, name: 'Adaptadores BSP x JIC', img: 'img/loja/bsp-jic.jpeg' },
+  { id: 18, name: 'Adaptadores BSP x DKO', img: 'img/loja/bsp-dko.jpg' },
+  { id: 19, name: 'Adaptadores BSP x BSP', img: 'img/loja/bsp-bsp.jpg' },
+
+  { id: 20, name: 'Tubos Galvanizados', img: 'img/loja/tubo.jpg' },
+  { id: 21, name: 'Abraçadeiras de Mangote', img: 'img/loja/abracadeira.jpeg' },
+  { id: 22, name: 'Conector PU', img: 'img/loja/conector.jpeg' },
+  { id: 23, name: 'União PU', img: 'img/loja/uniao-pu.jpeg' },
+  { id: 24, name: 'União Metálica', img: 'img/loja/uniao-metal.jpeg' },
+
+  { id: 25, name: 'Bico de Graxa', img: 'img/loja/bico-graxa.jpeg' },
+  { id: 26, name: 'Silenciador Bronze', img: 'img/loja/silenciador.jpeg' },
+  { id: 27, name: 'Pino Conector NPT', img: 'img/loja/pino.jpeg' },
+  { id: 28, name: 'Engate Rápido Macho/Fêmea', img: 'img/loja/engate2.jpeg' },
+
+  { id: 29, name: 'Anel O-Ring', img: 'img/loja/oring.jpg' },
+  { id: 30, name: 'Fita Veda Rosca', img: 'img/loja/fita.jpg' },
+
+  { id: 31, name: 'Lubrificante Hidráulico', img: 'img/loja/lubrificante.jpg' },
+
+  { id: 32, name: 'Mangueira PU Azul', img: 'img/loja/pu.jpg' },
+  { id: 33, name: 'Mangueira Trançada Gás', img: 'img/loja/gas.jpg' },
+  { id: 34, name: 'Mangueira R7', img: 'img/loja/r7.jpg' },
+  { id: 35, name: 'Mangueira R14 Teflon', img: 'img/loja/r14.jpg' },
+  { id: 36, name: 'Mangueira PVC Steel', img: 'img/loja/pvc.jpg' },
+  { id: 37, name: 'Mangueira Espiral', img: 'img/loja/espiral.jpg' },
+  { id: 38, name: 'Mangueira Cristal', img: 'img/loja/cristal.jpg' },
+  { id: 39, name: 'Mangueira R1/R2', img: 'img/loja/r1r2.jpg' },
+  { id: 40, name: 'Mangueira Montada', img: 'img/loja/montada.jpg' },
+  { id: 41, name: 'Emenda em Tee metálica', img: 'img/loja/emenda_tee_metal.jpeg' },
+  { id: 42, name: 'TEE PU', img: 'img/loja/tee-pu.jpeg' },
+  { id: 43, name: 'Cotovelo PU', img: 'img/loja/cotovelo-pu.jpeg' },
+  { id: 44, name: 'INSERT 10MM', img: 'img/loja/INSERT_10mm.jpeg' },
+  { id: 45, name: 'Bucha de redução macho/Fêmea', img: 'img/loja/Bucha_reducao.jpeg' },
+  { id: 46, name: 'Bucha para tijolo', img: 'img/loja/Bucha_tijolo.jpeg' },
+  { id: 47, name: 'Conexão soldável linha água', img: 'img/loja/soldavel.jpeg' },
+  { id: 48, name: 'Conexão de esgoto', img: 'img/loja/esgoto.jpeg' },
+  { id: 49, name: 'Abraçadeira para tubo', img: 'img/loja/abracadeira_tudo.jpeg' },
+  { id: 50, name: 'Fita exolante alta fusão e veda rosca', img: 'img/loja/alta_tensao.jpeg' },
+  { id: 51, name: 'Anel oring', img: 'img/loja/anel_oring.jpeg' },
+
+  
+];
 
   // ====== Seleção para cotação (Map: id -> { id, name, qty }) ======
   const selection = new Map();
@@ -147,7 +185,9 @@
 
       return `
         <div class="card">
-          <div class="card-media" aria-hidden="true">Imagem</div>
+         <div class="product-media">
+  <img src="${p.img}" alt="${p.name}">
+</div>
           <h3 class="card-title">${p.name}</h3>
 
           <div class="card-actions">
