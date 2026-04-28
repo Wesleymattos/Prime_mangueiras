@@ -1084,26 +1084,42 @@ figcaption {
 html {
   scroll-behavior: smooth;
 }
+
+/* TÍTULO */
+.services-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+/* ACCORDION */
 .accordion {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: auto;
 }
 
-/* item */
+/* ITEM */
 .accordion-item {
-  margin-bottom: 10px;
-  border-radius: 10px;
+  margin-bottom: 12px;
+  border-radius: 12px;
   overflow: hidden;
+  transition: 0.3s;
 }
 
-/* botão (cabeçalho) */
+.accordion-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* HEADER */
 .accordion-header {
   width: 100%;
   background: #1975d2;
   color: #fff;
   border: none;
   padding: 14px;
-  text-align: left;
 
   display: flex;
   align-items: center;
@@ -1111,71 +1127,74 @@ html {
 
   font-size: 1rem;
   cursor: pointer;
+  position: relative;
+}
 
+/* efeito brilho */
+.accordion-header::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: 0.5s;
+}
+
+.accordion-header:hover::before {
+  left: 100%;
+}
+
+/* seta */
+.arrow {
+  margin-left: auto;
   transition: 0.3s;
 }
 
-
-
-.accordion-header:hover {
-  background: #145ea8;
+.accordion-item.active .arrow {
+  transform: rotate(180deg);
 }
 
-/* conteúdo escondido */
+/* CONTEÚDO */
 .accordion-content {
-  max-height: 0;
+  height: 0;
   overflow: hidden;
+  transition: height 0.4s ease;
   background: #f8fafc;
-  transition: max-height 0.4s ease;
-  padding: 0 14px;
 }
 
-/* texto */
-.accordion-content p {
-  margin: 12px 0;
-  color: #0a2a43;
-}
-
-/* quando aberto */
-.accordion-item.active .accordion-content {
-  max-height: 120px;
-}
-
-
-/* conteúdo fechado */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
-/* quando abre (grande o suficiente) */
-.accordion-item.active .accordion-content {
-  max-height: 1000px; /* aumenta bastante pra não cortar */
-  padding: 15px;
-}
-
-/* layout */
+/* layout interno */
 .service-content {
   display: flex;
   gap: 20px;
-  align-items: center;
+  padding: 15px;
+}
+
+/* texto */
+.service-text {
+  flex: 1;
+  color: #0a2a43;
 }
 
 /* imagem */
-.service-image img {
-  width: 100%;
-  max-height: 250px; /* controla altura */
-  object-fit: cover; /* evita deformar */
-  border-radius: 12px;
+.service-image {
+  flex: 1;
 }
 
+.service-image img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 
+.service-image img:hover {
+  transform: scale(1.05);
+}
 
-.services-title {
-  text-align: center;      /* centraliza o texto */
-  font-size: 2.2rem;
-  color: #ffffff;          /* branco (combina com fundo escuro) */
-  margin: 30px 0;          /* espaço em cima e embaixo */
-  font-weight: 700;
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .service-content {
+    flex-direction: column;
+  }
 }

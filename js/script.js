@@ -85,13 +85,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
 const items = document.querySelectorAll(".accordion-item");
 
 items.forEach(item => {
   const header = item.querySelector(".accordion-header");
+  const content = item.querySelector(".accordion-content");
 
   header.addEventListener("click", () => {
-    item.classList.toggle("active");
+    const isOpen = content.style.height && content.style.height !== "0px";
+
+    document.querySelectorAll(".accordion-content").forEach(c => {
+      c.style.height = "0px";
+    });
+
+    if (!isOpen) {
+      content.style.height = content.scrollHeight + "px";
+    }
   });
 });
+
 
