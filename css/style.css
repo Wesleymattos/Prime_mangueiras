@@ -1271,3 +1271,69 @@ html {
   opacity: 0.7;
   transform: scale(0.98);
 }
+.carousel-section {
+  padding: 60px 20px;
+  position: relative;
+}
+
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  opacity: 0.5;
+  transition: 0.4s;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* Clientes */
+.clientes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.clientes img {
+  width: 120px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.clientes img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

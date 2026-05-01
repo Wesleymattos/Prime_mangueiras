@@ -87,35 +87,113 @@
 
 
 
-<section class="socio-section">
-  <!-- Título -->
-  <h1 class="socio">Heider Lacerda</h1>
+<section class="carousel-section">
 
-  <!-- Contêiner para imagem + texto lado a lado -->
-  <div class="perfil-wrapper">
-    <!-- Figura -->
-    <figure class="fig-centered">
-      <figcaption>Sócio proprietário</figcaption>
-      <img
-        src="img/socio.png"
-        alt="Heider Lacerda, sócio proprietário da empresa Prime Mangueiras e Conexões"
-        class="img-brilho"
-      >
-    </figure>
+  <div class="carousel">
 
-    <!-- Texto elegante alinhado à direita -->
-    <p class="sobre">
-      Especialista em mangueiras e conexões, fornecemos soluções personalizadas para diversos segmentos.
-      Trabalhamos com distribuição, revenda e customização, garantindo produtos de alta qualidade, suporte técnico
-      especializado e entrega ágil. Confiança e eficiência são nossos diferenciais para atender às necessidades do mercado.
-    </p>
+    <!-- Slides -->
+    <div class="carousel-track">
+
+      <!-- Slide 1 - Sócio -->
+      <div class="carousel-item active">
+        <h1 class="socio">Heider Lacerda</h1>
+
+        <div class="perfil-wrapper">
+          <figure class="fig-centered">
+            <figcaption>Sócio proprietário</figcaption>
+            <img src="img/socio.png" class="img-brilho">
+          </figure>
+
+          <p class="sobre">
+            Especialista em mangueiras e conexões, fornecemos soluções personalizadas para diversos segmentos.
+            Trabalhamos com distribuição, revenda e customização, garantindo produtos de alta qualidade.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 2 - Empresa -->
+      <div class="carousel-item">
+        <h1 class="socio">Nossa Empresa</h1>
+
+        <div class="perfil-wrapper">
+          <figure class="fig-centered">
+            <img src="img/empresa.jpg" class="img-brilho">
+          </figure>
+
+          <p class="sobre">
+            A Prime Mangueiras e Conexões atua no mercado oferecendo soluções completas em mangueiras hidráulicas,
+            conexões e acessórios industriais. Nosso compromisso é qualidade, agilidade e confiança.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 3 - Clientes -->
+      <div class="carousel-item">
+        <h1 class="socio">Nossos Clientes</h1>
+
+        <div class="clientes">
+          <img src="img/cliente1.png">
+          <img src="img/cliente2.png">
+          <img src="img/cliente3.png">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Indicadores (bolinhas) -->
+    <div class="carousel-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+
   </div>
+
 </section>
 
 
 
+<script>
+  const track = document.querySelector('.carousel-track');
+  const dots = document.querySelectorAll('.dot');
+  const items = document.querySelectorAll('.carousel-item');
 
+  let currentIndex = 0;
 
+  function goToSlide(index) {
+    currentIndex = index;
+
+    // mover
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    // atualizar dots
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+
+    // atualizar slides
+    items.forEach(item => item.classList.remove('active'));
+    items[index].classList.add('active');
+  }
+
+  // clique manual
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index);
+      goToSlide(index);
+    });
+  });
+
+  // autoplay (2 segundos)
+  setInterval(() => {
+    let next = currentIndex + 1;
+
+    if (next >= items.length) {
+      next = 0; // volta pro início
+    }
+
+    goToSlide(next);
+  }, 2000);
+</script>
 
     
 
