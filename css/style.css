@@ -1337,3 +1337,47 @@ html {
   opacity: 1;
   transform: scale(1.1);
 }
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .perfil-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .fig-centered img {
+    width: 80%;
+    max-width: 250px;
+  }
+
+  .sobre {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .socio {
+    font-size: 22px;
+  }
+
+  /* clientes */
+  .clientes {
+    gap: 15px;
+  }
+
+  .clientes img {
+    width: 80px;
+  }
+
+  /* dots mais acessíveis */
+  .carousel-dots {
+    bottom: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+}
