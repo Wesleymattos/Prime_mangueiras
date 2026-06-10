@@ -1373,3 +1373,21 @@ html {
   color: #1a1a1a;
 }
 
+/* ===== BLOQUEAR INVERÇÃO AUTOMÁTICA DO ANDROID ===== */
+
+/* impede adaptação automática de tema do navegador */
+:root {
+  color-scheme: light;
+}
+
+/* garante que o navegador não “force” dark mode em inputs e UI */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* evita interferência em alguns browsers Android */
+body {
+  color-scheme: light;
+}
+
