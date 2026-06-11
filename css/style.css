@@ -1391,3 +1391,75 @@ body {
   color-scheme: light;
 }
 
+/* ===== BANNER PRINCIPAL ===== */
+
+.banner-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: zoomSuave 10s ease-in-out infinite;
+}
+
+@keyframes zoomSuave {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Setas */
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 20;
+    transition: all .3s ease;
+}
+
+.seta:hover {
+    background: rgba(0,0,0,0.75);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.esquerda {
+    left: 15px;
+}
+
+.direita {
+    right: 15px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .seta {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .esquerda {
+        left: 8px;
+    }
+
+    .direita {
+        right: 8px;
+    }
+}

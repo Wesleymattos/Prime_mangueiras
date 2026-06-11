@@ -123,12 +123,45 @@
   <h2>Atendimento em Glorinha e toda região metropolitana</h2>
 </div>
     </section>
-   
-    <!--Imagem de fundo-->
-      <div class="card">
-          <img src="img/fundo_prime.jpeg" alt="Fundo da empresa">
-      </div class="info">
-        
+  <div class="banner-card">
+    <button class="seta esquerda" onclick="anterior()">❮</button>
+
+    <img id="banner" src="img/img2/banner_principal1.jpeg" alt="Fundo da empresa">
+
+    <button class="seta direita" onclick="proxima()">❯</button>
+</div>
+
+<script>
+const imagens = [
+    "img/img2/banner_principal1.jpeg",
+    "img/img2/banner_principal2.jpeg",
+    "img/img2/banner_principal3.jpeg",
+    "img/img2/banner_principal4.jpeg",
+    "img/img2/banner_principal5.jpeg",
+    "img/img2/banner_principal6.jpeg",
+    "img/img2/banner_principal7.jpeg"
+];
+
+let indice = 0;
+const banner = document.getElementById("banner");
+
+function mostrarImagem() {
+    banner.src = imagens[indice];
+}
+
+function proxima() {
+    indice = (indice + 1) % imagens.length;
+    mostrarImagem();
+}
+
+function anterior() {
+    indice = (indice - 1 + imagens.length) % imagens.length;
+    mostrarImagem();
+}
+
+// troca automática
+setInterval(proxima, 4000);
+</script>
   </main>
 
 
