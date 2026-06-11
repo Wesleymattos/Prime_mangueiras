@@ -1463,7 +1463,6 @@ body {
         right: 8px;
     }
 }
-
 .banner-texto {
     position: absolute;
     top: 50%;
@@ -1474,18 +1473,41 @@ body {
     max-width: 600px;
 }
 
-.banner-texto h1 {
-    margin: 0;
+.banner-texto h2 {
     font-size: 3rem;
-    font-weight: bold;
+    margin: 0;
+    line-height: 1.1;
     text-shadow: 0 3px 10px rgba(0,0,0,.8);
 }
 
 .banner-texto p {
-    margin-top: 10px;
     font-size: 1.3rem;
+    margin-top: 10px;
+    line-height: 1.4;
     text-shadow: 0 3px 10px rgba(0,0,0,.8);
 }
+
+@media (max-width: 768px) {
+
+    .banner-texto {
+        left: 5%;
+        right: 5%;
+        max-width: 90%;
+    }
+
+    .banner-texto h2 {
+        font-size: 1.6rem;
+    }
+
+    .banner-texto p {
+        font-size: 0.95rem;
+    }
+
+}
+
+
+
+
 
 .beneficios {
     display: grid;
