@@ -58,7 +58,7 @@
     <div class="container">
 
       <div class="logo">
-        <img src="img/logo.png" alt="Logo da Empresa">
+        <img src="img/logo.png" alt="Prime Mangueiras e Conexões - Glorinha RS">
       </div>
 
       <nav class="nav">
@@ -86,6 +86,27 @@
       </button>
 
     </div>
+
+
+    <script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LocalBusiness",
+ "name":"Prime Mangueiras e Conexões",
+ "url":"https://primemangueiras.com.br",
+ "telephone":"+55-51-99893-1547",
+ "address":{
+   "@type":"PostalAddress",
+   "streetAddress":"Rua Arlindo Ferrugem, 82",
+   "addressLocality":"Glorinha",
+   "addressRegion":"RS",
+   "addressCountry":"BR"
+ }
+}
+</script>
+
+<link rel="icon" type="image/png" href="img/logo2_prime.png">
+
   </header>
 
 
@@ -98,13 +119,11 @@
       <img src="img/logo2_prime.png" alt="Prime Mangueiras e Conexões" class="hero-logo">
       <h1>Prime Mangueiras e Conexões</h1>
       
-      <p>
-        Uma empresa de distribuição e revenda,
-        o que favorece o cliente final por fornecer
-        soluções customizadas às necessidades do mercado,
-        suporte técnico completo, produtos de qualidade,
-        garantia e distribuição rápida e eficiente.
-      </p>
+    <p>
+A Prime Mangueiras e Conexões é especializada em mangueiras hidráulicas,
+conexões industriais, terminais hidráulicos e soluções para manutenção
+industrial em Glorinha e região metropolitana de Porto Alegre.
+</p>
       
 
         <!-- 🔥 AQUI VOCÊ ADICIONA OS H2 -->
@@ -126,41 +145,86 @@
   <div class="banner-card">
     <button class="seta esquerda" onclick="anterior()">❮</button>
 
-    <img id="banner" src="img/img2/banner_principal1.jpeg" alt="Fundo da empresa">
+    <img id="banner"
+     src="img/img2/banner_principal1.jpeg"
+     alt="Mangueiras hidráulicas e conexões industriais em Glorinha RS">
+
+    <div class="banner-texto">
+        <h1 id="tituloBanner">Prime Mangueiras e Conexões</h1>
+        <p id="subtituloBanner">
+            Soluções em mangueiras hidráulicas e conexões industriais.
+        </p>
+    </div>
 
     <button class="seta direita" onclick="proxima()">❯</button>
 </div>
 
+
+
 <script>
-const imagens = [
-    "img/img2/banner_principal1.jpeg",
-    "img/img2/banner_principal2.jpeg",
-    "img/img2/banner_principal3.jpeg",
-    "img/img2/banner_principal4.jpeg",
-    "img/img2/banner_principal5.jpeg",
-    "img/img2/banner_principal6.jpeg",
-    "img/img2/banner_principal7.jpeg"
+const slides = [
+{
+    imagem: "img/img2/banner_principal1.jpeg",
+    titulo: "Prime Mangueiras e Conexões",
+    subtitulo: "Soluções em mangueiras hidráulicas e conexões industriais"
+},
+{
+    imagem: "img/img2/banner_principal2.jpeg",
+    titulo: "Atendimento Especializado",
+    subtitulo: "Equipe técnica preparada para atender sua necessidade"
+},
+{
+    imagem: "img/img2/banner_principal3.jpeg",
+    titulo: "Entrega Rápida",
+    subtitulo: "Agilidade para sua empresa não parar"
+},
+{
+    imagem: "img/img2/banner_principal4.jpeg",
+    titulo: "Qualidade Garantida",
+    subtitulo: "Produtos das melhores marcas do mercado"
+},
+{
+    imagem: "img/img2/banner_principal5.jpeg",
+    titulo: "Conexões Industriais",
+    subtitulo: "Grande variedade para aplicações hidráulicas"
+},
+{
+    imagem: "img/img2/banner_principal6.jpeg",
+    titulo: "Atendimento Regional",
+    subtitulo: "Glorinha e toda região metropolitana"
+},
+{
+    imagem: "img/img2/banner_principal7.jpeg",
+    titulo: "Soluções Sob Medida",
+    subtitulo: "Produtos e serviços personalizados"
+}
 ];
 
 let indice = 0;
-const banner = document.getElementById("banner");
 
-function mostrarImagem() {
-    banner.src = imagens[indice];
+const banner = document.getElementById("banner");
+const titulo = document.getElementById("tituloBanner");
+const subtitulo = document.getElementById("subtituloBanner");
+
+function atualizarSlide() {
+    banner.src = slides[indice].imagem;
+    titulo.textContent = slides[indice].titulo;
+    subtitulo.textContent = slides[indice].subtitulo;
 }
 
 function proxima() {
-    indice = (indice + 1) % imagens.length;
-    mostrarImagem();
+    indice = (indice + 1) % slides.length;
+    atualizarSlide();
 }
 
 function anterior() {
-    indice = (indice - 1 + imagens.length) % imagens.length;
-    mostrarImagem();
+    indice = (indice - 1 + slides.length) % slides.length;
+    atualizarSlide();
 }
 
-// troca automática
 setInterval(proxima, 4000);
+
+atualizarSlide();
 </script>
   </main>
 

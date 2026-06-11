@@ -1463,3 +1463,26 @@ body {
         right: 8px;
     }
 }
+
+.banner-texto {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 15;
+    max-width: 600px;
+}
+
+.banner-texto h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 3px 10px rgba(0,0,0,.8);
+}
+
+.banner-texto p {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,.8);
+}
