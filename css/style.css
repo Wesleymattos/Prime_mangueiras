@@ -1277,7 +1277,7 @@ html {
 }
 
 .carousel {
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   touch-action: pan-y;
 }
@@ -1298,25 +1298,27 @@ html {
 }
 
 .carousel-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
+  justify-content: center;
   gap: 10px;
-}
 
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  left: auto;
+  bottom: auto;
+  transform: none;
+}
 .dot {
-  width: 12px;
-  height: 12px;
-  background: rgba(255,255,255,0.5);
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.4);
   border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
 .dot.active {
-  background: #fff;
+  background: #ffffff;
   transform: scale(1.2);
 }
 
@@ -1329,14 +1331,12 @@ html {
 }
 
 .clientes img {
-  width: 120px;
-  opacity: 0.8;
-  transition: 0.3s;
+    filter: grayscale(100%);
+    transition: .3s;
 }
 
 .clientes img:hover {
-  opacity: 1;
-  transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
 .h2-item {
@@ -1549,4 +1549,64 @@ body {
     .beneficios {
         grid-template-columns: 1fr;
     }
+}
+
+.cliente-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cliente-card img {
+    max-width: 140px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.sobre_clientes {
+    max-width: 900px;
+    margin: 15px auto 35px auto;
+    padding: 0 20px;
+
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    font-weight: 500;
+}
+
+.img-brilho {
+    max-width: 280px;
+    height: auto;
+
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.7));
+    animation: brilhoLogo 2s ease-in-out infinite alternate;
+}
+
+@keyframes brilhoLogo {
+    from {
+        filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+    }
+
+    to {
+        filter: drop-shadow(0 0 25px rgba(255,255,255,1));
+    }
+}
+
+.img-socio {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 4px solid #fff;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
